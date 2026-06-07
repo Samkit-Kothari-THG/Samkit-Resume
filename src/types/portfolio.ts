@@ -1,6 +1,22 @@
-import type { LucideIcon } from "lucide-react";
-
 export type ProjectId = string;
+
+export type PortfolioIconName =
+  | "bot"
+  | "boxes"
+  | "building"
+  | "chart"
+  | "code"
+  | "gauge"
+  | "globe"
+  | "layers"
+  | "linkedin"
+  | "mail"
+  | "map"
+  | "quote"
+  | "rocket"
+  | "sparkles"
+  | "users"
+  | "workflow";
 
 export type Profile = {
   name: string;
@@ -24,14 +40,14 @@ export type CommandModule = {
 export type Metric = {
   value: string;
   label: string;
-  icon: LucideIcon;
+  icon: PortfolioIconName;
 };
 
 export type SocialProof = {
   value: string;
   label: string;
   detail: string;
-  Icon: LucideIcon;
+  icon: PortfolioIconName;
 };
 
 export type RecommendationTheme = {
@@ -48,7 +64,7 @@ export type Project = {
   impact: string;
   tech: string[];
   accent: string;
-  Icon: LucideIcon;
+  icon: PortfolioIconName;
 };
 
 export type Experience = {
@@ -61,6 +77,6 @@ export type Experience = {
 
 export type SkillGroup = {
   label: string;
-  Icon: LucideIcon;
+  icon: PortfolioIconName;
   skills: string[];
 };

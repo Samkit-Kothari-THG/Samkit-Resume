@@ -1,0 +1,275 @@
+@media (max-width: 1120px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .active-brief {
+    margin-left: 0;
+  }
+
+  .metric-rail,
+  .proof-grid,
+  .project-grid,
+  .skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .recommendation-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .recommendation-panel a {
+    width: fit-content;
+  }
+
+  .project-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    background-size: 34px 34px, 34px 34px, auto, auto, auto;
+  }
+
+  .site-header {
+    top: 10px;
+    width: min(calc(100% - 18px), var(--max-width));
+    display: flex;
+    gap: 8px;
+    padding: 7px;
+  }
+
+  .site-header nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 3px;
+    padding: 0;
+    scrollbar-width: none;
+  }
+
+  .site-header nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-header nav a {
+    flex: 0 0 auto;
+    min-width: max-content;
+    min-height: 38px;
+    padding: 0 8px;
+    font-size: 0.78rem;
+  }
+
+  .header-actions {
+    flex: 0 0 auto;
+    gap: 6px;
+  }
+
+  .hero-section {
+    padding: 88px 16px 42px;
+  }
+
+  .scene-layer {
+    height: 58svh;
+    top: 52px;
+    bottom: auto;
+  }
+
+  .scene-layer::after {
+    background: var(--scene-overlay-mobile);
+  }
+
+  .hero-grid {
+    min-height: auto;
+    padding-top: 42svh;
+    gap: 18px;
+  }
+
+  h1 {
+    font-size: clamp(2.55rem, 14vw, 4.1rem);
+    line-height: 0.95;
+  }
+
+  .hero-copy {
+    padding-top: 0;
+  }
+
+  .hero-summary {
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .metric-rail,
+  .proof-grid,
+  .project-grid,
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scroll-cue {
+    display: none;
+  }
+
+  .content-section {
+    width: min(100% - 24px, var(--max-width));
+    padding: 64px 0;
+  }
+
+  .project-band > .section-heading,
+  .project-controls,
+  .project-grid {
+    width: min(100% - 24px, var(--max-width));
+  }
+
+  .project-controls {
+    align-items: stretch;
+  }
+
+  .project-controls span {
+    display: none;
+  }
+
+  .project-controls button {
+    flex: 1;
+  }
+
+  .timeline-item {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .timeline-pin {
+    width: 38px;
+    height: 38px;
+  }
+
+  .timeline::before {
+    left: 19px;
+  }
+
+  .active-brief,
+  .metric-tile,
+  .proof-card,
+  .recommendation-panel,
+  .project-card,
+  .skill-card {
+    padding: 16px;
+  }
+
+  .active-brief {
+    width: 100%;
+  }
+
+  .project-card dl {
+    gap: 10px;
+  }
+
+  .project-card h3,
+  .timeline-item h3 {
+    font-size: 1.25rem;
+  }
+
+  .project-card p,
+  .project-card dd,
+  .timeline-item p,
+  .timeline-item li {
+    font-size: 0.94rem;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.85rem, 9vw, 2.7rem);
+  }
+
+  .section-heading p {
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .brand-mark,
+  .icon-link {
+    width: 38px;
+    height: 38px;
+  }
+
+  .theme-toggle {
+    min-width: 38px;
+    padding: 0 10px;
+  }
+
+  .theme-toggle span {
+    display: none;
+  }
+
+  .site-header {
+    gap: 6px;
+  }
+
+  .site-header nav {
+    gap: 2px;
+    padding: 0;
+  }
+
+  .site-header nav a {
+    min-height: 36px;
+    padding: 0 6px;
+    font-size: 0.74rem;
+  }
+
+  .hero-actions,
+  .profile-links,
+  .contact-dock {
+    flex-direction: column;
+  }
+
+  .primary-action,
+  .secondary-action,
+  .profile-links a,
+  .contact-dock a {
+    width: 100%;
+  }
+
+  .metric-tile {
+    min-height: 104px;
+  }
+}
+
+@media (max-width: 390px) {
+  .site-header nav a {
+    font-size: 0.72rem;
+    padding: 0 5px;
+  }
+
+  .site-header nav a {
+    font-size: 0;
+  }
+
+  .site-header nav a::before {
+    content: attr(data-short-label);
+    font-size: 0.72rem;
+  }
+
+  .hero-section {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  h1 {
+    font-size: clamp(2.35rem, 13vw, 3.2rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

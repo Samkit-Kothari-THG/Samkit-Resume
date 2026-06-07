@@ -4,6 +4,7 @@ import { projects } from "../../data/resume";
 import type { ProjectId } from "../../types/portfolio";
 import { SectionHeading } from "../ui/SectionHeading";
 import { TechList } from "../ui/TechList";
+import { getPortfolioIcon } from "../ui/portfolioIcons";
 
 type ProjectsShowroomProps = {
   activeProjectId: ProjectId;
@@ -93,7 +94,7 @@ export function ProjectsShowroom({ activeProjectId, onSelectProject }: ProjectsS
       </div>
       <div className="project-grid">
         {projects.map((project) => {
-          const Icon = project.Icon;
+          const Icon = getPortfolioIcon(project.icon);
           const isActive = activeProjectId === project.id;
           const accentStyle: AccentStyle = { "--accent": project.accent };
 

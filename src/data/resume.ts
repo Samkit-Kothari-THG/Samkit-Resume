@@ -1,21 +1,3 @@
-import {
-  Bot,
-  Boxes,
-  Building2,
-  ChartNoAxesCombined,
-  Code2,
-  Gauge,
-  Globe2,
-  Layers3,
-  Linkedin,
-  Mail,
-  MapPinned,
-  MessageSquareQuote,
-  Rocket,
-  Sparkles,
-  Users,
-  Workflow
-} from "lucide-react";
 import type { CommandModule, Experience, Metric, Profile, Project, RecommendationTheme, SkillGroup, SocialProof } from "../types/portfolio";
 
 export const profile: Profile = {
@@ -43,11 +25,11 @@ export const commandModules: CommandModule[] = [
 ];
 
 export const metrics: Metric[] = [
-  { value: "4+", label: "years frontend engineering", icon: Gauge },
-  { value: "12+", label: "beauty and luxury sites migrated", icon: Globe2 },
-  { value: "2x", label: "personalized campaign ad revenue", icon: ChartNoAxesCombined },
-  { value: "80%", label: "content production time reduced", icon: Sparkles },
-  { value: "30+", label: "localized Hydrafacial languages", icon: MapPinned }
+  { value: "4+", label: "years frontend engineering", icon: "gauge" },
+  { value: "12+", label: "beauty and luxury sites migrated", icon: "globe" },
+  { value: "2x", label: "personalized campaign ad revenue", icon: "chart" },
+  { value: "80%", label: "content production time reduced", icon: "sparkles" },
+  { value: "30+", label: "localized Hydrafacial languages", icon: "map" }
 ];
 
 export const socialProof: SocialProof[] = [
@@ -55,25 +37,25 @@ export const socialProof: SocialProof[] = [
     value: "2K",
     label: "LinkedIn followers",
     detail: "A public professional audience connected to my frontend engineering, ecommerce, AI tooling, and career-growth work.",
-    Icon: Linkedin
+    icon: "linkedin"
   },
   {
     value: "500+",
     label: "connections",
     detail: "A broad network across engineering, ecommerce, product, and delivery communities.",
-    Icon: Users
+    icon: "users"
   },
   {
     value: "6",
     label: "recommendations",
     detail: "Peer and colleague validation around the qualities I try to bring every day: ownership, clarity, and consistent delivery.",
-    Icon: MessageSquareQuote
+    icon: "quote"
   },
   {
     value: "THG",
     label: "current platform",
     detail: "My current work focuses on commerce storefronts, personalization, analytics, and AI-assisted workflows.",
-    Icon: Building2
+    icon: "building"
   }
 ];
 
@@ -131,7 +113,7 @@ export const projects: Project[] = [
     impact: "Improved site speed, reduced latency, and made brand launches easier to maintain.",
     tech: ["Astro.js", "React", "Next.js", "Tailwind CSS", "Edge rendering", "Analytics"],
     accent: "#58d7cf",
-    Icon: Layers3
+    icon: "layers"
   },
   {
     id: "hydrafacial",
@@ -143,7 +125,7 @@ export const projects: Project[] = [
     impact: "Delivered 29+ localized languages and a more complete self-service customer journey.",
     tech: ["React", "Geolocation", "Dynamic forms", "Localization", "API validation"],
     accent: "#f2b84b",
-    Icon: MapPinned
+    icon: "map"
   },
   {
     id: "personify",
@@ -155,7 +137,7 @@ export const projects: Project[] = [
     impact: "Helped productize real-time personalization, recommendations, and targeted offers across tenant sites.",
     tech: ["React", "Workflow UI", "CSV uploads", "Segmentation", "Analytics dashboards"],
     accent: "#ff6bb5",
-    Icon: Workflow
+    icon: "workflow"
   },
   {
     id: "vibelabs",
@@ -167,19 +149,19 @@ export const projects: Project[] = [
     impact: "Reduced content production time by 80% while improving content relevance and creative velocity.",
     tech: ["LLMs", "Prompt engineering", "NLP", "Image pipeline", "Video generation"],
     accent: "#8be28c",
-    Icon: Bot
+    icon: "bot"
   }
 ];
 
 export const skillGroups: SkillGroup[] = [
   {
     label: "Languages",
-    Icon: Code2,
+    icon: "code",
     skills: ["JavaScript", "TypeScript", "HTML5", "CSS3"]
   },
   {
     label: "Frameworks & UI",
-    Icon: Boxes,
+    icon: "boxes",
     skills: [
       "React.js",
       "Astro.js",
@@ -196,17 +178,17 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: "Backend & Platforms",
-    Icon: Rocket,
+    icon: "rocket",
     skills: ["Strapi", "Firebase", "REST APIs", "Git", "GitHub", "GitLab", "GTM", "JIRA"]
   },
   {
     label: "AI Tooling",
-    Icon: Sparkles,
+    icon: "sparkles",
     skills: ["ChatGPT", "Claude", "Gemini", "Grok", "GitHub Copilot", "Claude Code CLI", "Codex CLI"]
   },
   {
     label: "Contact Channels",
-    Icon: Mail,
+    icon: "mail",
     skills: ["LinkedIn", "Email", "Resume PDF", "Existing portfolio"]
   }
 ];

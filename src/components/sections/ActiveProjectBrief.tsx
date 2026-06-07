@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "../../data/resume";
 import type { ProjectId } from "../../types/portfolio";
+import { getPortfolioIcon } from "../ui/portfolioIcons";
 
 type ActiveProjectBriefProps = {
   activeProjectId: ProjectId;
@@ -9,7 +10,7 @@ type ActiveProjectBriefProps = {
 
 export function ActiveProjectBrief({ activeProjectId }: ActiveProjectBriefProps) {
   const activeProject = projects.find((project) => project.id === activeProjectId) ?? projects[0];
-  const ActiveIcon = activeProject.Icon;
+  const ActiveIcon = getPortfolioIcon(activeProject.icon);
 
   return (
     <div className="active-brief" aria-live="polite">

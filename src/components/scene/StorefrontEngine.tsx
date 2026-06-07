@@ -10,10 +10,10 @@ export function StorefrontEngine({ reduceMotion, theme }: MotionAwareSceneProps)
   const group = useRef<THREE.Group>(null);
   const palette = getScenePalette(theme);
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     if (!group.current || reduceMotion) return;
     group.current.rotation.y += delta * 0.24;
-    group.current.rotation.x = Math.sin(Date.now() * 0.0006) * 0.06;
+    group.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.6) * 0.06;
   });
 
   return (

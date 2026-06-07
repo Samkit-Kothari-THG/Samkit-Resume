@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { profile, recommendationThemes, socialProof } from "../../data/resume";
 import { SectionHeading } from "../ui/SectionHeading";
+import { getPortfolioIcon } from "../ui/portfolioIcons";
 
 export function LinkedInProofSection() {
   return (
@@ -12,7 +13,7 @@ export function LinkedInProofSection() {
       />
       <div className="proof-grid">
         {socialProof.map((proof) => {
-          const Icon = proof.Icon;
+          const Icon = getPortfolioIcon(proof.icon);
           return (
             <article className="proof-card" key={proof.label}>
               <Icon size={20} aria-hidden="true" />

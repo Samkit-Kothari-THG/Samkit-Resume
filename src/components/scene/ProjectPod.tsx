@@ -1,8 +1,9 @@
 import { Html } from "@react-three/drei";
 import { ThreeEvent, useFrame } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import * as THREE from "three";
 import { projects } from "../../data/resume";
+import { useBodyCursor } from "../../hooks/useBodyCursor";
 import type { ProjectId } from "../../types/portfolio";
 import type { ThemeMode } from "../../types/theme";
 import { getScenePalette } from "./palette";
@@ -26,14 +27,7 @@ export function ProjectPod({ projectId, index, activeProjectId, onSelectProject,
   const palette = getScenePalette(theme);
   const isActive = activeProjectId === projectId;
   const position = getProjectPosition(index, isActive);
-
-  useEffect(() => {
-    return () => {
-      if (typeof document !== "undefined") {
-        document.body.style.cursor = "";
-      }
-    };
-  }, []);
+  useBodyCursor(isHovered);
 
   useFrame((state, delta) => {
     if (!group.current || reduceMotion) return;
@@ -56,13 +50,11 @@ export function ProjectPod({ projectId, index, activeProjectId, onSelectProject,
   const handlePointerOver = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
     setIsHovered(true);
-    document.body.style.cursor = "pointer";
   };
 
   const handlePointerOut = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
     setIsHovered(false);
-    document.body.style.cursor = "";
   };
 
   return (

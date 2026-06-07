@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { metrics } from "../../data/resume";
+import { getPortfolioIcon } from "../ui/portfolioIcons";
 
 export function ImpactMetrics() {
   return (
     <div className="metric-rail" aria-label="Career impact metrics">
       {metrics.map((metric) => {
-        const Icon = metric.icon;
+        const Icon = getPortfolioIcon(metric.icon);
         return (
           <motion.div
             key={metric.label}

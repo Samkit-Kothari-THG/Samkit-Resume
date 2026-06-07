@@ -1,7 +1,8 @@
 import { Float, Html, Text } from "@react-three/drei";
 import { ThreeEvent, useFrame } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import * as THREE from "three";
+import { useBodyCursor } from "../../hooks/useBodyCursor";
 import type { CommandModule } from "../../types/portfolio";
 import { getScenePalette } from "./palette";
 import type { MotionAwareSceneProps } from "./types";
@@ -22,14 +23,7 @@ export function CommandModuleNode({ item, reduceMotion, theme }: CommandModuleNo
   const faceMaterial = useRef<THREE.MeshStandardMaterial>(null);
   const [isHovered, setIsHovered] = useState(false);
   const palette = getScenePalette(theme);
-
-  useEffect(() => {
-    return () => {
-      if (typeof document !== "undefined") {
-        document.body.style.cursor = "";
-      }
-    };
-  }, []);
+  useBodyCursor(isHovered);
 
   useFrame((state, delta) => {
     if (!group.current) return;
@@ -46,13 +40,11 @@ export function CommandModuleNode({ item, reduceMotion, theme }: CommandModuleNo
   const handlePointerOver = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
     setIsHovered(true);
-    document.body.style.cursor = "pointer";
   };
 
   const handlePointerOut = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
     setIsHovered(false);
-    document.body.style.cursor = "";
   };
 
   return (

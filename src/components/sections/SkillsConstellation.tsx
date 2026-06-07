@@ -1,6 +1,7 @@
 import { skillGroups } from "../../data/resume";
 import { SectionHeading } from "../ui/SectionHeading";
 import { TechList } from "../ui/TechList";
+import { getPortfolioIcon } from "../ui/portfolioIcons";
 
 export function SkillsConstellation() {
   return (
@@ -8,7 +9,7 @@ export function SkillsConstellation() {
       <SectionHeading eyebrow="Skills constellation" title="Frontend, platform, AI tooling, and delivery skills grouped for scanning." />
       <div className="skill-grid">
         {skillGroups.map((group) => {
-          const Icon = group.Icon;
+          const Icon = getPortfolioIcon(group.icon);
           return (
             <article className="skill-card" key={group.label}>
               <div className="skill-title">

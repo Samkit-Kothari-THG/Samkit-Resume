@@ -1,0 +1,113 @@
+.scene-layer {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.96;
+}
+
+.scene-layer::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: var(--scene-overlay);
+  pointer-events: none;
+}
+
+.command-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.scene-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  transition: opacity 220ms ease, visibility 220ms ease;
+}
+
+.scene-loader.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.scene-loader-panel {
+  display: grid;
+  min-width: 190px;
+  justify-items: center;
+  gap: 10px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: var(--panel-bg-strong);
+  color: var(--text-heading);
+  padding: 14px 16px;
+  text-align: center;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 26px color-mix(in srgb, var(--accent-cyan) 18%, transparent);
+}
+
+.scene-loader-panel span {
+  width: 36px;
+  height: 36px;
+  border: 1px solid color-mix(in srgb, var(--accent-cyan) 30%, transparent);
+  border-top-color: var(--accent-green);
+  border-radius: 50%;
+  animation: scene-loader-spin 1s linear infinite;
+}
+
+.scene-loader-panel strong {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.scene-label {
+  display: inline-flex;
+  max-width: 140px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: var(--panel-bg-strong);
+  color: var(--text-muted);
+  padding: 5px 8px;
+  font-size: 0.72rem;
+  line-height: 1.15;
+  text-align: center;
+  white-space: normal;
+  backdrop-filter: blur(10px);
+}
+
+.scene-label-active {
+  border-color: color-mix(in srgb, var(--accent-green) 55%, transparent);
+  color: var(--text-heading);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent-green) 20%, transparent);
+}
+
+.scene-module-label {
+  display: grid;
+  min-width: 120px;
+  max-width: 150px;
+  gap: 3px;
+  border: 1px solid color-mix(in srgb, var(--accent-cyan) 42%, transparent);
+  border-radius: 8px;
+  background: var(--panel-bg-strong);
+  color: var(--text-muted);
+  padding: 7px 9px;
+  font-size: 0.7rem;
+  line-height: 1.18;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent-cyan) 16%, transparent);
+}
+
+.scene-module-label strong {
+  color: var(--text-heading);
+  font-size: 0.74rem;
+}
+
+@keyframes scene-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

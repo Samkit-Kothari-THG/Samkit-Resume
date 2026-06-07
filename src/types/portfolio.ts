@@ -27,6 +27,18 @@ export type Metric = {
   icon: LucideIcon;
 };
 
+export type SocialProof = {
+  value: string;
+  label: string;
+  detail: string;
+  Icon: LucideIcon;
+};
+
+export type RecommendationTheme = {
+  title: string;
+  body: string;
+};
+
 export type Project = {
   id: ProjectId;
   title: string;

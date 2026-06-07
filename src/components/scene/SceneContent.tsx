@@ -1,8 +1,7 @@
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import { projects } from "../../data/resume";
 import { GridDeck } from "./GridDeck";
 import { OrbitingModules } from "./OrbitingModules";
-import { ProjectPod } from "./ProjectPod";
+import { ProjectPodRing } from "./ProjectPodRing";
 import { StorefrontEngine } from "./StorefrontEngine";
 import { getScenePalette } from "./palette";
 import type { CommandCenterSceneProps } from "./types";
@@ -21,17 +20,7 @@ export function SceneContent({ activeProjectId, onSelectProject, reduceMotion, t
       <GridDeck theme={theme} />
       <StorefrontEngine reduceMotion={reduceMotion} theme={theme} />
       <OrbitingModules reduceMotion={reduceMotion} theme={theme} />
-      {projects.map((project, index) => (
-        <ProjectPod
-          key={project.id}
-          projectId={project.id}
-          index={index}
-          activeProjectId={activeProjectId}
-          onSelectProject={onSelectProject}
-          reduceMotion={reduceMotion}
-          theme={theme}
-        />
-      ))}
+      <ProjectPodRing activeProjectId={activeProjectId} onSelectProject={onSelectProject} reduceMotion={reduceMotion} theme={theme} />
       <OrbitControls
         enableZoom={false}
         enablePan={false}

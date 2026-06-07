@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { projects } from "../../data/resume";
 import type { ProjectId } from "../../types/portfolio";
 import { SectionHeading } from "../ui/SectionHeading";
@@ -14,6 +15,15 @@ type AccentStyle = CSSProperties & {
 };
 
 export function ProjectsShowroom({ activeProjectId, onSelectProject }: ProjectsShowroomProps) {
+  const activeIndex = Math.max(
+    0,
+    projects.findIndex((project) => project.id === activeProjectId)
+  );
+  const selectProjectAtOffset = (offset: number) => {
+    const nextIndex = (activeIndex + offset + projects.length) % projects.length;
+    onSelectProject(projects[nextIndex].id);
+  };
+
   return (
     <section className="content-section project-band" id="projects">
       <SectionHeading
@@ -21,6 +31,19 @@ export function ProjectsShowroom({ activeProjectId, onSelectProject }: ProjectsS
         title="Clickable pods with problem, solution, technology, and impact."
         description="Each project card is connected to a 3D pod in the command center, keeping the visual system tied to resume substance."
       />
+      <div className="project-controls" aria-label="Project focus controls">
+        <button type="button" onClick={() => selectProjectAtOffset(-1)}>
+          <ArrowLeft size={17} aria-hidden="true" />
+          Previous
+        </button>
+        <span>
+          Focused pod {activeIndex + 1} of {projects.length}
+        </span>
+        <button type="button" onClick={() => selectProjectAtOffset(1)}>
+          Next
+          <ArrowRight size={17} aria-hidden="true" />
+        </button>
+      </div>
       <div className="project-grid">
         {projects.map((project) => {
           const Icon = project.Icon;

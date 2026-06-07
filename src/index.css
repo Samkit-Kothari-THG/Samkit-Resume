@@ -441,6 +441,119 @@ h1 {
   line-height: 1.35;
 }
 
+.proof-section {
+  padding-top: 72px;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.proof-card,
+.recommendation-panel {
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: var(--panel-bg);
+  backdrop-filter: blur(14px);
+}
+
+.proof-card {
+  min-height: 210px;
+  padding: 18px;
+}
+
+.proof-card svg {
+  color: var(--accent-cyan);
+}
+
+.proof-card strong {
+  display: block;
+  margin-top: 18px;
+  color: var(--text-heading);
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1;
+}
+
+.proof-card span {
+  display: block;
+  margin-top: 8px;
+  color: var(--accent-green);
+  font-weight: 800;
+}
+
+.proof-card p {
+  margin: 12px 0 0;
+  color: var(--text-muted);
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.recommendation-panel {
+  display: grid;
+  grid-template-columns: 0.72fr 1.2fr auto;
+  gap: 20px;
+  align-items: start;
+  margin-top: 14px;
+  padding: 20px;
+}
+
+.recommendation-eyebrow {
+  color: var(--accent-amber);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.recommendation-panel h3,
+.recommendation-panel h4 {
+  margin: 0;
+}
+
+.recommendation-panel h3 {
+  margin-top: 10px;
+  font-size: 1.45rem;
+  line-height: 1.1;
+}
+
+.recommendation-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.recommendation-grid article {
+  border-left: 2px solid var(--accent-green);
+  padding-left: 12px;
+}
+
+.recommendation-grid h4 {
+  color: var(--text-heading);
+  font-size: 0.98rem;
+}
+
+.recommendation-grid p {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.recommendation-panel a {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--accent-green);
+  padding: 0 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 .scroll-cue {
   position: absolute;
   right: 22px;
@@ -577,6 +690,45 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
+}
+
+.project-controls {
+  display: flex;
+  width: min(100% - 32px, var(--max-width));
+  margin: 0 auto 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.project-controls button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: var(--panel-bg);
+  color: var(--text-primary);
+  padding: 0 13px;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.project-controls button:hover,
+.project-controls button:focus-visible {
+  background: color-mix(in srgb, var(--accent-green) 10%, var(--panel-bg));
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.project-controls span {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .project-card {
@@ -722,9 +874,18 @@ footer a {
   }
 
   .metric-rail,
+  .proof-grid,
   .project-grid,
   .skill-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .recommendation-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .recommendation-panel a {
+    width: fit-content;
   }
 
   .project-card {
@@ -808,6 +969,7 @@ footer a {
   }
 
   .metric-rail,
+  .proof-grid,
   .project-grid,
   .skill-grid {
     grid-template-columns: 1fr;
@@ -823,8 +985,21 @@ footer a {
   }
 
   .project-band > .section-heading,
+  .project-controls,
   .project-grid {
     width: min(100% - 24px, var(--max-width));
+  }
+
+  .project-controls {
+    align-items: stretch;
+  }
+
+  .project-controls span {
+    display: none;
+  }
+
+  .project-controls button {
+    flex: 1;
   }
 
   .timeline-item {
@@ -844,6 +1019,8 @@ footer a {
 
   .active-brief,
   .metric-tile,
+  .proof-card,
+  .recommendation-panel,
   .project-card,
   .skill-card {
     padding: 16px;

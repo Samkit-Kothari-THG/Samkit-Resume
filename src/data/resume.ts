@@ -1,24 +1,28 @@
 import {
   Bot,
   Boxes,
+  Building2,
   ChartNoAxesCombined,
   Code2,
   Gauge,
   Globe2,
   Layers3,
+  Linkedin,
   Mail,
   MapPinned,
+  MessageSquareQuote,
   Rocket,
   Sparkles,
+  Users,
   Workflow
 } from "lucide-react";
-import type { CommandModule, Experience, Metric, Profile, Project, SkillGroup } from "../types/portfolio";
+import type { CommandModule, Experience, Metric, Profile, Project, RecommendationTheme, SkillGroup, SocialProof } from "../types/portfolio";
 
 export const profile: Profile = {
   name: "Samkit Kothari",
   role: "Senior Frontend Engineer",
   headline:
-    "Building high-performance ecommerce platforms, personalization systems, AI-assisted content workflows, and accessible storefront experiences.",
+    "Building revenue-impacting ecommerce, personalization, AI content, and storefront performance systems at THG.",
   location: "Maharashtra, India",
   email: "kotharisamkeet@gmail.com",
   secondaryEmail: "snkothari15@gmail.com",
@@ -44,6 +48,48 @@ export const metrics: Metric[] = [
   { value: "2x", label: "personalized campaign ad revenue", icon: ChartNoAxesCombined },
   { value: "80%", label: "content production time reduced", icon: Sparkles },
   { value: "30+", label: "localized Hydrafacial languages", icon: MapPinned }
+];
+
+export const socialProof: SocialProof[] = [
+  {
+    value: "2K",
+    label: "LinkedIn followers",
+    detail: "A visible professional audience around frontend engineering, ecommerce, AI tooling, and career growth.",
+    Icon: Linkedin
+  },
+  {
+    value: "500+",
+    label: "connections",
+    detail: "A broad network across engineering, ecommerce, product, and delivery communities.",
+    Icon: Users
+  },
+  {
+    value: "6",
+    label: "recommendations",
+    detail: "Peer and colleague validation for technical ownership, collaboration, and delivery quality.",
+    Icon: MessageSquareQuote
+  },
+  {
+    value: "THG",
+    label: "current platform",
+    detail: "Senior frontend work on commerce storefronts, personalization, analytics, and AI-assisted workflows.",
+    Icon: Building2
+  }
+];
+
+export const recommendationThemes: RecommendationTheme[] = [
+  {
+    title: "Technical ownership",
+    body: "The work goes beyond UI delivery: migrations, performance, observability, and production ownership are central to the story."
+  },
+  {
+    title: "Collaborative engineering",
+    body: "Cross-functional delivery with design, data, marketing, and junior engineers turns platform work into visible product impact."
+  },
+  {
+    title: "Commerce impact",
+    body: "The strongest project examples connect engineering decisions to revenue, speed, localization, campaign tooling, and content efficiency."
+  }
 ];
 
 export const experiences: Experience[] = [

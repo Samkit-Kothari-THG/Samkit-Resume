@@ -1,7 +1,7 @@
 import { useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import { Footer, Header } from "./components/layout";
-import { ExperienceTimeline, HeroSection, ProjectsShowroom, SkillsConstellation } from "./components/sections";
+import { ExperienceTimeline, HeroSection, LinkedInProofSection, ProjectsShowroom, SkillsConstellation } from "./components/sections";
 import { projects } from "./data/resume";
 import { useThemePreference } from "./hooks/useThemePreference";
 import type { ProjectId } from "./types/portfolio";
@@ -16,6 +16,7 @@ function App() {
       <Header theme={theme} onToggleTheme={toggleTheme} />
       <main>
         <HeroSection activeProjectId={activeProjectId} onSelectProject={setActiveProjectId} reduceMotion={Boolean(reducedMotion)} theme={theme} />
+        <LinkedInProofSection />
         <ExperienceTimeline />
         <ProjectsShowroom activeProjectId={activeProjectId} onSelectProject={setActiveProjectId} />
         <SkillsConstellation />

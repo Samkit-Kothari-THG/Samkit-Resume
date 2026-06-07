@@ -4,6 +4,7 @@ import { CommandCenterScene } from "../scene";
 import { ProfileLinks } from "../ui/ProfileLinks";
 import { profile } from "../../data/resume";
 import type { ProjectId } from "../../types/portfolio";
+import type { ThemeMode } from "../../types/theme";
 import { ActiveProjectBrief } from "./ActiveProjectBrief";
 import { ImpactMetrics } from "./ImpactMetrics";
 
@@ -11,13 +12,14 @@ type HeroSectionProps = {
   activeProjectId: ProjectId;
   onSelectProject: (projectId: ProjectId) => void;
   reduceMotion: boolean;
+  theme: ThemeMode;
 };
 
-export function HeroSection({ activeProjectId, onSelectProject, reduceMotion }: HeroSectionProps) {
+export function HeroSection({ activeProjectId, onSelectProject, reduceMotion, theme }: HeroSectionProps) {
   return (
     <section className="hero-section" id="top">
       <div className="scene-layer" aria-hidden="true">
-        <CommandCenterScene activeProjectId={activeProjectId} onSelectProject={onSelectProject} reduceMotion={reduceMotion} />
+        <CommandCenterScene activeProjectId={activeProjectId} onSelectProject={onSelectProject} reduceMotion={reduceMotion} theme={theme} />
       </div>
       <div className="hero-grid">
         <motion.div className="hero-copy" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>

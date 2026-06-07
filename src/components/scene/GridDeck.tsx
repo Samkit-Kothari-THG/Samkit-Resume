@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 import * as THREE from "three";
+import type { ThemeMode } from "../../types/theme";
+import { getScenePalette } from "./palette";
 
 function buildGridGeometry() {
   const vertices: number[] = [];
@@ -15,12 +17,17 @@ function buildGridGeometry() {
   return geometry;
 }
 
-export function GridDeck() {
+type GridDeckProps = {
+  theme: ThemeMode;
+};
+
+export function GridDeck({ theme }: GridDeckProps) {
   const geometry = useMemo(buildGridGeometry, []);
+  const palette = getScenePalette(theme);
 
   return (
     <lineSegments geometry={geometry}>
-      <lineBasicMaterial color="#254341" transparent opacity={0.42} />
+      <lineBasicMaterial color={palette.grid} transparent opacity={0.42} />
     </lineSegments>
   );
 }

@@ -8,6 +8,24 @@
       content="Samkit Kothari's 3D resume portfolio for frontend, ecommerce, personalization, and AI content engineering."
     />
     <title>Samkit Kothari | 3D Commerce Portfolio</title>
+    <script>
+      (() => {
+        try {
+          const key = "commerce-command-center-theme";
+          const storedTheme = window.localStorage.getItem(key);
+          const theme = storedTheme === "dark" || storedTheme === "light"
+            ? storedTheme
+            : window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        } catch {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -4,6 +4,8 @@ import { useRef } from "react";
 import * as THREE from "three";
 import { projects } from "../../data/resume";
 import type { ProjectId } from "../../types/portfolio";
+import type { ThemeMode } from "../../types/theme";
+import { getScenePalette } from "./palette";
 import type { ProjectSelectHandler } from "./types";
 
 type ProjectPodProps = {
@@ -12,11 +14,13 @@ type ProjectPodProps = {
   activeProjectId: ProjectId;
   onSelectProject: ProjectSelectHandler;
   reduceMotion: boolean;
+  theme: ThemeMode;
 };
 
-export function ProjectPod({ projectId, index, activeProjectId, onSelectProject, reduceMotion }: ProjectPodProps) {
+export function ProjectPod({ projectId, index, activeProjectId, onSelectProject, reduceMotion, theme }: ProjectPodProps) {
   const project = projects.find((item) => item.id === projectId)!;
   const group = useRef<THREE.Group>(null);
+  const palette = getScenePalette(theme);
   const angle = (index / projects.length) * Math.PI * 2 + Math.PI / 4;
   const isActive = activeProjectId === projectId;
   const radius = isActive ? 3.45 : 3.15;
@@ -37,7 +41,7 @@ export function ProjectPod({ projectId, index, activeProjectId, onSelectProject,
       <mesh>
         <dodecahedronGeometry args={[isActive ? 0.42 : 0.32, 0]} />
         <meshStandardMaterial
-          color={isActive ? project.accent : "#151a14"}
+          color={isActive ? project.accent : palette.inactivePod}
           emissive={project.accent}
           emissiveIntensity={isActive ? 1.1 : 0.35}
           roughness={0.24}

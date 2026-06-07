@@ -4,20 +4,23 @@ import { GridDeck } from "./GridDeck";
 import { OrbitingModules } from "./OrbitingModules";
 import { ProjectPod } from "./ProjectPod";
 import { StorefrontEngine } from "./StorefrontEngine";
+import { getScenePalette } from "./palette";
 import type { CommandCenterSceneProps } from "./types";
 
-export function SceneContent({ activeProjectId, onSelectProject, reduceMotion }: CommandCenterSceneProps) {
+export function SceneContent({ activeProjectId, onSelectProject, reduceMotion, theme }: CommandCenterSceneProps) {
+  const palette = getScenePalette(theme);
+
   return (
     <>
       <PerspectiveCamera makeDefault position={[0, 2.2, 6.8]} fov={48} />
-      <ambientLight intensity={0.7} />
-      <directionalLight position={[2.6, 4, 3]} intensity={1.35} color="#fff4da" />
-      <pointLight position={[-3, 1.3, 2]} intensity={3.2} color="#58d7cf" />
-      <pointLight position={[3, 0.4, -2.5]} intensity={2.4} color="#ff6bb5" />
-      <fog attach="fog" args={["#070807", 6, 13]} />
-      <GridDeck />
-      <StorefrontEngine reduceMotion={reduceMotion} />
-      <OrbitingModules reduceMotion={reduceMotion} />
+      <ambientLight intensity={palette.ambientIntensity} />
+      <directionalLight position={[2.6, 4, 3]} intensity={palette.directionalIntensity} color={palette.directional} />
+      <pointLight position={[-3, 1.3, 2]} intensity={palette.cyanLightIntensity} color="#58d7cf" />
+      <pointLight position={[3, 0.4, -2.5]} intensity={palette.pinkLightIntensity} color="#ff6bb5" />
+      <fog attach="fog" args={[palette.fog, 6, 13]} />
+      <GridDeck theme={theme} />
+      <StorefrontEngine reduceMotion={reduceMotion} theme={theme} />
+      <OrbitingModules reduceMotion={reduceMotion} theme={theme} />
       {projects.map((project, index) => (
         <ProjectPod
           key={project.id}
@@ -26,6 +29,7 @@ export function SceneContent({ activeProjectId, onSelectProject, reduceMotion }:
           activeProjectId={activeProjectId}
           onSelectProject={onSelectProject}
           reduceMotion={reduceMotion}
+          theme={theme}
         />
       ))}
       <OrbitControls

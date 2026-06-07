@@ -3,10 +3,12 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { commandModules } from "../../data/resume";
+import { getScenePalette } from "./palette";
 import type { MotionAwareSceneProps } from "./types";
 
-export function OrbitingModules({ reduceMotion }: MotionAwareSceneProps) {
+export function OrbitingModules({ reduceMotion, theme }: MotionAwareSceneProps) {
   const group = useRef<THREE.Group>(null);
+  const palette = getScenePalette(theme);
   const items = useMemo(
     () =>
       commandModules.map((module, index) => {
@@ -34,7 +36,7 @@ export function OrbitingModules({ reduceMotion }: MotionAwareSceneProps) {
           <group position={[item.x, item.y, item.z]} rotation={[0, -item.angle + Math.PI / 2, 0]}>
             <mesh>
               <boxGeometry args={[0.64, 0.38, 0.16]} />
-              <meshStandardMaterial color="#11170f" roughness={0.34} metalness={0.38} emissive={item.color} emissiveIntensity={0.18} />
+              <meshStandardMaterial color={palette.moduleBase} roughness={0.34} metalness={0.38} emissive={item.color} emissiveIntensity={0.18} />
             </mesh>
             <mesh position={[0, 0, 0.091]}>
               <planeGeometry args={[0.56, 0.28]} />

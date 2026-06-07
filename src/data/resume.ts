@@ -39,11 +39,11 @@ export const commandModules: CommandModule[] = [
 ];
 
 export const metrics: Metric[] = [
-  { value: "3.5+", label: "years frontend engineering", icon: Gauge },
-  { value: "10+", label: "beauty and luxury sites migrated", icon: Globe2 },
+  { value: "4+", label: "years frontend engineering", icon: Gauge },
+  { value: "12+", label: "beauty and luxury sites migrated", icon: Globe2 },
   { value: "2x", label: "personalized campaign ad revenue", icon: ChartNoAxesCombined },
   { value: "80%", label: "content production time reduced", icon: Sparkles },
-  { value: "29+", label: "localized Hydrafacial languages", icon: MapPinned }
+  { value: "30+", label: "localized Hydrafacial languages", icon: MapPinned }
 ];
 
 export const experiences: Experience[] = [

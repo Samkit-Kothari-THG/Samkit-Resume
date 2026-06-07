@@ -22,6 +22,7 @@ export function useThemePreference() {
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
+    document.getElementById("theme-color-meta")?.setAttribute("content", theme === "light" ? "#f4f7ed" : "#070807");
 
     try {
       window.localStorage.setItem(STORAGE_KEY, theme);

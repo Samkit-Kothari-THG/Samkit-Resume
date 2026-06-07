@@ -247,6 +247,28 @@ button {
   box-shadow: 0 0 18px color-mix(in srgb, var(--accent-green) 20%, transparent);
 }
 
+.scene-module-label {
+  display: grid;
+  min-width: 120px;
+  max-width: 150px;
+  gap: 3px;
+  border: 1px solid color-mix(in srgb, var(--accent-cyan) 42%, transparent);
+  border-radius: 8px;
+  background: var(--panel-bg-strong);
+  color: var(--text-muted);
+  padding: 7px 9px;
+  font-size: 0.7rem;
+  line-height: 1.18;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent-cyan) 16%, transparent);
+}
+
+.scene-module-label strong {
+  color: var(--text-heading);
+  font-size: 0.74rem;
+}
+
 .hero-grid {
   position: relative;
   display: grid;
@@ -732,6 +754,7 @@ h1 {
 }
 
 .project-card {
+  position: relative;
   display: flex;
   min-height: 560px;
   flex-direction: column;
@@ -743,7 +766,13 @@ h1 {
   padding: 18px;
   text-align: left;
   cursor: pointer;
+  overflow: hidden;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.project-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .project-card:hover,
@@ -753,6 +782,17 @@ h1 {
   background: color-mix(in srgb, var(--accent) 9%, var(--project-card-active-base));
   outline: none;
   transform: translateY(-4px);
+}
+
+.project-card.active::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background: linear-gradient(115deg, transparent 0%, color-mix(in srgb, var(--accent) 22%, transparent) 44%, transparent 72%);
+  opacity: 0.42;
+  transform: translateX(-110%);
+  animation: signal-sweep 3.2s ease-in-out infinite;
 }
 
 .project-card .project-topline {
@@ -862,6 +902,17 @@ footer {
 
 footer a {
   color: var(--accent-green);
+}
+
+@keyframes signal-sweep {
+  0% {
+    transform: translateX(-115%);
+  }
+
+  48%,
+  100% {
+    transform: translateX(115%);
+  }
 }
 
 @media (max-width: 1120px) {

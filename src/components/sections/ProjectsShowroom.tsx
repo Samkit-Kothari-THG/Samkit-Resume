@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { projects } from "../../data/resume";
 import type { ProjectId } from "../../types/portfolio";
@@ -15,17 +15,64 @@ type AccentStyle = CSSProperties & {
 };
 
 export function ProjectsShowroom({ activeProjectId, onSelectProject }: ProjectsShowroomProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isKeyboardActive, setIsKeyboardActive] = useState(false);
   const activeIndex = Math.max(
     0,
     projects.findIndex((project) => project.id === activeProjectId)
   );
-  const selectProjectAtOffset = (offset: number) => {
+
+  const selectProjectAtOffset = useCallback((offset: number) => {
     const nextIndex = (activeIndex + offset + projects.length) % projects.length;
     onSelectProject(projects[nextIndex].id);
-  };
+  }, [activeIndex, onSelectProject]);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+
+    if (!node || typeof IntersectionObserver === "undefined") {
+      setIsKeyboardActive(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsKeyboardActive(entry.isIntersecting);
+    }, { threshold: 0.32 });
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isKeyboardActive) return undefined;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target;
+      const isEditableTarget =
+        target instanceof HTMLElement &&
+        (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable);
+
+      if (isEditableTarget) return;
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        selectProjectAtOffset(-1);
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        selectProjectAtOffset(1);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isKeyboardActive, selectProjectAtOffset]);
 
   return (
-    <section className="content-section project-band" id="projects">
+    <section ref={sectionRef} className="content-section project-band" id="projects">
       <SectionHeading
         eyebrow="Project showroom"
         title="Clickable pods with problem, solution, technology, and impact."

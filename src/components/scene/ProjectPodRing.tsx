@@ -4,7 +4,9 @@ import * as THREE from "three";
 import { projects } from "../../data/resume";
 import type { ProjectId } from "../../types/portfolio";
 import type { ThemeMode } from "../../types/theme";
+import { ActiveProjectBeam } from "./ActiveProjectBeam";
 import { ProjectPod } from "./ProjectPod";
+import { getTargetRotation } from "./projectLayout";
 import type { ProjectSelectHandler } from "./types";
 
 type ProjectPodRingProps = {
@@ -13,16 +15,6 @@ type ProjectPodRingProps = {
   reduceMotion: boolean;
   theme: ThemeMode;
 };
-
-function getTargetRotation(activeProjectId: ProjectId) {
-  const activeIndex = Math.max(
-    0,
-    projects.findIndex((project) => project.id === activeProjectId)
-  );
-  const activeAngle = (activeIndex / projects.length) * Math.PI * 2 + Math.PI / 4;
-
-  return Math.PI / 2 - activeAngle;
-}
 
 export function ProjectPodRing({ activeProjectId, onSelectProject, reduceMotion, theme }: ProjectPodRingProps) {
   const group = useRef<THREE.Group>(null);
@@ -41,6 +33,7 @@ export function ProjectPodRing({ activeProjectId, onSelectProject, reduceMotion,
 
   return (
     <group ref={group}>
+      <ActiveProjectBeam activeProjectId={activeProjectId} reduceMotion={reduceMotion} theme={theme} />
       {projects.map((project, index) => (
         <ProjectPod
           key={project.id}

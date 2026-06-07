@@ -54,7 +54,7 @@ export const socialProof: SocialProof[] = [
   {
     value: "2K",
     label: "LinkedIn followers",
-    detail: "A visible professional audience around frontend engineering, ecommerce, AI tooling, and career growth.",
+    detail: "A public professional audience connected to my frontend engineering, ecommerce, AI tooling, and career-growth work.",
     Icon: Linkedin
   },
   {
@@ -66,13 +66,13 @@ export const socialProof: SocialProof[] = [
   {
     value: "6",
     label: "recommendations",
-    detail: "Peer and colleague validation for technical ownership, collaboration, and delivery quality.",
+    detail: "Peer and colleague validation around the qualities I try to bring every day: ownership, clarity, and consistent delivery.",
     Icon: MessageSquareQuote
   },
   {
     value: "THG",
     label: "current platform",
-    detail: "Senior frontend work on commerce storefronts, personalization, analytics, and AI-assisted workflows.",
+    detail: "My current work focuses on commerce storefronts, personalization, analytics, and AI-assisted workflows.",
     Icon: Building2
   }
 ];
@@ -80,15 +80,15 @@ export const socialProof: SocialProof[] = [
 export const recommendationThemes: RecommendationTheme[] = [
   {
     title: "Technical ownership",
-    body: "The work goes beyond UI delivery: migrations, performance, observability, and production ownership are central to the story."
+    body: "I take frontend work beyond UI delivery: migrations, performance tuning, observability, and production follow-through matter to me."
   },
   {
     title: "Collaborative engineering",
-    body: "Cross-functional delivery with design, data, marketing, and junior engineers turns platform work into visible product impact."
+    body: "I work closely with design, data, marketing, and other engineers so platform work becomes visible product impact."
   },
   {
     title: "Commerce impact",
-    body: "The strongest project examples connect engineering decisions to revenue, speed, localization, campaign tooling, and content efficiency."
+    body: "I connect engineering decisions to business outcomes: revenue, speed, localization, campaign tooling, and content efficiency."
   }
 ];
 

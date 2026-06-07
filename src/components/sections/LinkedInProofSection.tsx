@@ -6,9 +6,9 @@ export function LinkedInProofSection() {
   return (
     <section className="content-section proof-section" id="proof">
       <SectionHeading
-        eyebrow="LinkedIn proof"
-        title="Public credibility that supports the portfolio story."
-        description="These signals make the 3D experience feel grounded in a real professional profile, not just a visual demo."
+        eyebrow="Professional snapshot"
+        title="The public profile behind my engineering work."
+        description="A quick view of the network, recommendations, and platform experience connected to my frontend and ecommerce work."
       />
       <div className="proof-grid">
         {socialProof.map((proof) => {
@@ -25,8 +25,8 @@ export function LinkedInProofSection() {
       </div>
       <div className="recommendation-panel">
         <div>
-          <span className="recommendation-eyebrow">Recommendation themes</span>
-          <h3>What the site should make obvious within the first minute.</h3>
+          <span className="recommendation-eyebrow">How I work</span>
+          <h3>What I bring to engineering teams and product goals.</h3>
         </div>
         <div className="recommendation-grid">
           {recommendationThemes.map((theme) => (

@@ -15,9 +15,9 @@ export function Header({ theme, onToggleTheme }: HeaderProps) {
         <span>SK</span>
       </a>
       <nav aria-label="Portfolio sections">
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="#experience" data-short-label="Exp">Experience</a>
+        <a href="#projects" data-short-label="Work">Projects</a>
+        <a href="#skills" data-short-label="Skills">Skills</a>
       </nav>
       <div className="header-actions">
         <ThemeToggle theme={theme} onToggle={onToggleTheme} />

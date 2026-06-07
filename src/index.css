@@ -740,19 +740,19 @@ footer a {
   .site-header {
     top: 10px;
     width: min(calc(100% - 18px), var(--max-width));
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 8px 10px;
-    padding: 8px;
+    display: flex;
+    gap: 8px;
+    padding: 7px;
   }
 
   .site-header nav {
-    grid-column: 1 / -1;
-    order: 3;
-    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
     max-width: none;
     overflow-x: auto;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 3px;
+    padding: 0;
     scrollbar-width: none;
   }
 
@@ -761,24 +761,25 @@ footer a {
   }
 
   .site-header nav a {
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     min-width: max-content;
-    min-height: 34px;
-    padding: 0 9px;
-    font-size: 0.84rem;
+    min-height: 38px;
+    padding: 0 8px;
+    font-size: 0.78rem;
   }
 
   .header-actions {
-    justify-self: end;
+    flex: 0 0 auto;
+    gap: 6px;
   }
 
   .hero-section {
-    padding: 132px 16px 42px;
+    padding: 88px 16px 42px;
   }
 
   .scene-layer {
     height: 58svh;
-    top: 96px;
+    top: 52px;
     bottom: auto;
   }
 
@@ -894,17 +895,18 @@ footer a {
   }
 
   .site-header {
-    gap: 8px;
+    gap: 6px;
   }
 
   .site-header nav {
-    gap: 4px;
-    padding: 2px 0 0;
+    gap: 2px;
+    padding: 0;
   }
 
   .site-header nav a {
-    padding: 0 7px;
-    font-size: 0.8rem;
+    min-height: 36px;
+    padding: 0 6px;
+    font-size: 0.74rem;
   }
 
   .hero-actions,
@@ -927,8 +929,17 @@ footer a {
 
 @media (max-width: 390px) {
   .site-header nav a {
-    font-size: 0.76rem;
-    padding: 0 6px;
+    font-size: 0.72rem;
+    padding: 0 5px;
+  }
+
+  .site-header nav a {
+    font-size: 0;
+  }
+
+  .site-header nav a::before {
+    content: attr(data-short-label);
+    font-size: 0.72rem;
   }
 
   .hero-section {
